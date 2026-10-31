@@ -1,0 +1,10 @@
+{
+  "deviceId": "",
+  "format": "wav",
+  "sampleRate": 48000,
+  "bitrate": 320,
+  "noiseSuppression": false,
+  "echoCancellation": false,
+  "autoGainControl": false,
+  "filenameTemplate": "Audio_{YYYY}{MM}{DD}_{HH}{mm}{ss}"
+}

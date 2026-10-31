@@ -1,0 +1,70 @@
+/* Voice */
+
+/* Idle record button: white mic on a red disc, so it reads as "record" among
+   the grey header icons. The disc is a spread shadow, so it adds no size and
+   never shifts the neighbouring buttons. */
+.workspace .view-action.voice-record,
+.workspace .view-action.voice-record:hover {
+  color: var(--color-red);
+}
+.workspace .view-action.voice-record svg,
+.workspace .view-action.voice-record:hover svg {
+  color: #fff;
+  border-radius: 50%;
+  background: var(--color-red);
+  box-shadow: 0 0 0 4px var(--color-red);
+}
+.view-action.voice-record:active { opacity: 0.6; }
+
+/* While recording */
+.workspace .view-action.voice-stop,
+.workspace .view-action.voice-stop:hover {
+  color: var(--color-red);
+}
+.workspace .view-action.voice-discard.is-armed,
+.workspace .view-action.voice-discard.is-armed:hover {
+  color: #fff;
+  background: var(--color-red);
+}
+
+.view-action.voice-saving { cursor: default; }
+.view-action.voice-saving svg { animation: voice-spin 1s linear infinite; }
+
+.voice-timer {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--size-4-1);
+  font-size: var(--font-ui-small);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+  user-select: none;
+}
+.voice-timer.is-recording { color: var(--color-red); }
+.voice-timer.is-paused { animation: voice-blink 1.2s steps(2, start) infinite; }
+
+/* Input level meter (turns red when the signal clips) */
+.voice-meter {
+  align-self: center;
+  width: 36px;
+  height: 4px;
+  margin: 0 var(--size-4-1);
+  border-radius: 2px;
+  background: var(--background-modifier-border);
+  overflow: hidden;
+}
+.voice-meter-fill {
+  display: block;
+  height: 100%;
+  width: calc(var(--voice-level, 0) * 100%);
+  background: var(--interactive-accent);
+  transition: width 80ms linear;
+}
+.voice-meter-fill.is-clipping { background: var(--color-red); }
+.is-mobile .voice-meter { display: none; }
+
+/* Status bar (desktop): click to stop */
+.voice-status { display: none; color: var(--color-red); cursor: pointer; }
+.voice-status.is-active { display: inline-flex; }
+
+@keyframes voice-spin { to { transform: rotate(360deg); } }
+@keyframes voice-blink { to { opacity: 0.35; } }

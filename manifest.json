@@ -1,0 +1,9 @@
+{
+  "id": "my-voice-plugin",
+  "name": "Voice",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "Record voice notes from the note header in clean WAV, FLAC or Opus with browser noise filters off.",
+  "author": "Joseph Anosike",
+  "isDesktopOnly": false
+}
